@@ -14,7 +14,8 @@ def remove_stock(inventory, item, quantity):
 
 def is_low_stock(inventory, item, threshold=5):
     """Returns True if an item's stock is at or below the given threshold."""
-    return inventory.get(item, 0) < threshold
+    # Updated comparison to include the threshold value itself.
+    return inventory.get(item, 0) <= threshold
 
 
 def total_items(inventory):

@@ -22,6 +22,12 @@ def total_items(inventory):
     """Returns the total quantity of all items combined."""
     return sum(inventory.values())
 
+def apply_discount(price, discount_percent):
+    """
+    Applies a discount to a price and returns the final price,
+    rounded to 2 decimal places.
+    """
+    return price - (price * discount_percent / 100)
 
 if __name__ == "__main__":
     stock = {}

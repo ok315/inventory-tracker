@@ -27,7 +27,13 @@ def apply_discount(price, discount_percent):
     Applies a discount to a price and returns the final price,
     rounded to 2 decimal places.
     """
-    return price - (price * discount_percent / 100)
+    # Validate discount percent range
+    if not (0 <= discount_percent <= 100):
+        raise ValueError(
+            f"Discount percent must be between 0 and 100 inclusive, got {discount_percent}"
+        )
+    discounted_price = price - (price * discount_percent / 100)
+    return round(discounted_price, 2)
 
 if __name__ == "__main__":
     stock = {}

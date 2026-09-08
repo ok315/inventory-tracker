@@ -1,5 +1,9 @@
 def add_stock(inventory, item, quantity):
-    """Adds quantity to an item's stock. Creates the item if it doesn't exist."""
+    """Adds quantity to an item's stock. Creates the item if it doesn't exist.
+    Raises a ValueError if a negative quantity is provided.
+    """
+    if quantity < 0:
+        raise ValueError("Quantity must be non‑negative")
     inventory[item] = inventory.get(item, 0) + quantity
     return inventory
 

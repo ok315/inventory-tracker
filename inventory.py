@@ -5,7 +5,15 @@ def add_stock(inventory, item, quantity):
 
 
 def remove_stock(inventory, item, quantity):
-    """Removes quantity from an item's stock. Raises an error if not enough stock."""
+    """Removes quantity from an item's stock.
+
+    Raises:
+        ValueError: If ``quantity`` is negative or if there is not enough stock for the item.
+    """
+    # Validate that the quantity to remove is non‑negative.
+    if quantity < 0:
+        raise ValueError("Quantity to remove cannot be negative")
+    # Ensure sufficient stock exists before removal.
     if inventory.get(item, 0) < quantity:
         raise ValueError(f"Not enough stock for {item}")
     inventory[item] -= quantity
